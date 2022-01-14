@@ -4,6 +4,8 @@ This repository is meant to storage some scripts I've written (in a pretty bad p
 
 I'll try to embbed in each script a small explanation about it, so it would be more comprehensible.
 
+>_Provisory Note: I've written some of these scripts years ago and I'm currently working to update them accordingly to my actual ability with Python_
+
 ## Usage
 
 If you wanna see these small attempts to programs working in your machine, just install Python:
