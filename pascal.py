@@ -1,28 +1,34 @@
-#-*-coding:utf8;-*-
-
-lmax = input("digite o numero de linhas para o triangulo: ")
-cache = [1]
-atual = [1]
-cont = 0
-tam = 0
-
-
-def mod(lin):
-    while len(lin) < cont - 1:
-        lin.append(0)
-    while len(atual) < cont:
-        atual.append(0)
-    tam = 0
-    while tam < cont:
-        if tam == len(lin) and len(lin) != 1 or tam == 0:
-            atual[tam] = 1
-        if tam != 0 or tam != len(lin):
-            atual[tam] = lin[tam] + lin[tam-1]
-        tam += 1
+def build_triangle(nlines):
+    triangle = []
+    if (nlines >= 1):
+        linha1 = [1]
+        triangle.append(linha1)
+    
+    if (nlines >= 2):
+        linha2 = [1, 1]
+        triangle.append(linha2)
+    
+    if (nlines >= 3):
+        previous_line = [1, 1]
+        
+        for linha in range(3, nlines + 1):
+            current_line = []
             
-    print atual
+            for elemento in range(0, linha):
+                if (elemento == 0):
+                    current_line.append(1)
+                elif (elemento == linha - 1):
+                    current_line.append(1)
+                else:
+                    current_line.append(previous_line[elemento] + previous_line[elemento - 1])
 
-while cont <= lmax:
-    mod(cache)
-    cache = atual
-    cont += 1
+            triangle.append(current_line)
+            previous_line = current_line
+
+    return triangle
+
+number_of_lines = int(input("digite o número de linhas do triângulo:\n> "))
+built_triangle = build_triangle(number_of_lines)
+
+for line in built_triangle:
+    print(line)
