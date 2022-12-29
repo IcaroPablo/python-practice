@@ -114,6 +114,8 @@ def dijkstra_main_loop(maze, src, target, dist, prev, not_visited):
         return dijkstra_main_loop(maze, src, target, dist, prev, not_visited)
     except ZeroDivisionError:
         return get_path(src, next_node(dist, not_visited), prev)
+    except TypeError:
+        print("\nlabirinto sem solução")
 
 def dijkstra_maze_solver(maze, src, target):
     list(map(print, maze))
@@ -138,6 +140,6 @@ def draw_path(maze, path):
 maze = [[1, 0, 1, 1],
         [1, 1, 1, 0],
         [1, 1, 1, 0],
-        [0, 0, 1, 1]]
+        [0, 0, 0, 1]]
 
 list(map(print, dijkstra_maze_solver(maze, (0, 0), (3, 3))))
